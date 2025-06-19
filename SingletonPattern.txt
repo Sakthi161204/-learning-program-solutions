@@ -1,0 +1,33 @@
+package Singleton_Pattern;
+
+class Singleton {
+
+	    private static Singleton singleInstance;
+	    private Singleton() {
+	        System.out.println("Singleton Initialized...!!");
+	    }
+	    public static Singleton getInstance() {
+	        if (singleInstance == null) {
+	            singleInstance = new Singleton();
+	        }
+	        return singleInstance;
+	    }
+	    public void msg(String message) {
+	        System.out.println(message);
+	    }
+	}
+public class Sample {
+
+    public static void main(String[] args) {
+        Singleton l1 = Singleton.getInstance();
+        l1.msg("log-1");
+        Singleton l2 = Singleton.getInstance();
+        l2.msg("log-2.");
+        if (l1 == l2) {
+            System.out.println("Same");
+        } else {
+            System.out.println("Different");
+        }
+    }
+}
+
